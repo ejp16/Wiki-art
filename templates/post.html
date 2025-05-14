@@ -1,0 +1,34 @@
+{% extends "base/base.html" %}
+
+{% block content %} 
+
+	
+		
+		<div id="loginFormCinco">
+			<h1 class="registrate">{{ info.nombreObra }}</h1>
+			<img id="postsUno" src="/static/images/{{ info.nombreImagen }}" alt="{{ info.nombreObra }}">
+		
+			<h1 class="registrate">Datos de la obra</h1>
+
+			<div class="contenedor">
+				<h1 class="registrateUno">Autor:</h1>
+				<p class="parrafo"> {{ info.nombreAutor }}</p>
+			</div class="contenedor">
+				<h1 class="registrateUno">Genero:</h1>
+				<p class="parrafo"> {{ info.generoObra }}</p>
+			<div class="contenedor">
+				<h1 class="registrateUno">Estilo: </h1>
+				<p class="parrafo">{{ info.estiloObra }}</p>
+			</div>
+			<div class="contenedor">
+				<h1 class="registrateUno">Reseña</h1>
+			</div>
+			<p class="parrafo"> {{ info.text }}</p>
+			
+		</div>
+
+	
+	
+
+
+{% endblock %}

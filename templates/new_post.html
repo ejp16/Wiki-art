@@ -1,0 +1,106 @@
+{% extends "base/base.html" %}
+
+
+{% block content %}
+
+	{% from "base/_macro.html" import render_field %}
+
+	<!-- Para capturar los mensajes exitosos -->
+	{% with messages = get_flashed_messages(category_filter=["success"]) %}
+
+		{% if messages %}
+		
+		
+			{% for message in messages %}
+
+				<div class="alert alert-success alert-dismissible fade show" role="alert">
+				  {{ message }}
+				  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>
+
+			{% endfor %}
+		
+		
+		{% endif %}
+	{% endwith %}
+
+	<!-- Para capturar los mensajes de error  -->
+	{% with errors = get_flashed_messages(category_filter=["error"]) %}
+
+		{% if errors %}
+			{% for error in errors %}
+
+				<div class="alert alert-warning alert-dismissible fade show" role="alert">
+				  {{ error }}
+				  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>
+			{% endfor %}
+
+		{% endif %}
+	{% endwith %}
+
+	<div id="loginFormUno">
+		<div class="loginForm_superior">
+			<h1 class="registrate">Crear post</h1>
+			<img src="/static/images/logo-new.png" width="150px" height="150px" ></img>
+		</div>
+		<form method="POST" action="/new_post" enctype="multipart/form-data">
+			
+			<div class="mb-3">
+				{{ render_field(form.nombreObra) }}
+			</div class="mb-3">
+
+			<div class="mb-3">
+				{{ render_field(form.nombreAutor) }}
+			</div class="mb-3">
+
+			<div class="mb-3">
+				{{ render_field(form.text) }}
+			</div class="mb-3">
+
+
+			<label for="estilo">Estilo de la obra</label>
+
+			<select name="estilo" id="estilo" required>
+				<option value="">Elija una opcion</option>
+				<option value="Realismo">Realismo</option>
+				<option value="Fotorrealismo">Fotorrealismo</option>
+				<option value="Expresionismo">Expresionismo</option>
+				<option value="Impresionismo">Impresionismo</option>
+				<option value="Abstracto">Abstracto</option>
+				<option value="Surrealismo">Surrealismo</option>
+				<option value="Renacimiento">Renacimiento</option>
+
+				
+			</select><br>
+
+			<label id="obra" for="genero">Género de la obra</label>
+
+			<select name="genero" id="genero" required>
+				<option value="">Elija una opcion</option>
+				<option value="Pintura histórica">Pintura histórica</option>
+				<option value="Retrato">Retrato</option>
+				<option value="Pintura de género">Pintura de género</option>
+				<option value="Paisaje">Paisaje</option>
+				<option value="Naturaleza muerta">Naturaleza muerta</option>
+				<option value="Desnudo">Desnudo</option>
+				<option value="Alegoria">Alegoria</option>
+				<option value="Simbolica">Simbolica</option>
+				<option value="Cubismo">Cubismo</option>
+
+			</select><br>
+				
+			</select>
+
+		<div class="mb-3" id="archivo-imagen">
+			<input type="file" name="file" class="form-control-file" id="exampleFormControlFile1" accept="image/*">
+		</div class="mb-3">
+
+			<button type="submit" class="btn btn-primary">Enviar</button>
+		</form>
+	</div>
+
+
+{% endblock %}
+
+

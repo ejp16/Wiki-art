@@ -1,0 +1,66 @@
+{% extends 'base/base.html' %}
+
+{% block content %} 
+
+
+	<!-- Para capturar los mensajes exitosos -->
+	{% with messages = get_flashed_messages(category_filter=["success"]) %}
+
+		{% if messages %}
+		
+		
+			{% for message in messages %}
+
+				<div class="alert alert-success alert-dismissible fade show" role="alert">
+				  {{ message }}
+				  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>
+
+			{% endfor %}
+		
+		
+		{% endif %}
+	{% endwith %}
+
+
+	<div id="principal">
+		<img src="static/images/name-no-bckg.png" id="titulo" />
+		<!--<h1 class="nom_pag">Wiki-Art</h1>-->
+
+	
+			<h1 class="registrate">Posts publicados</h1>
+
+	<!-- Para capturar los mensajes de error  -->
+	{% with errors = get_flashed_messages(category_filter=["error"]) %}
+
+		{% if errors %}
+
+			<div id="mensaje">
+				{% for error in errors %}
+					<p id="mensaje-busq">{{ error }}</p>
+				{% endfor %}
+			</div>
+
+		{% endif %}
+	{% endwith %}
+	
+	<div id="loginFormGrande">
+		{% for nombreImagen, nombreObra, id in miniatura %}
+		<div id="loginFormDos">
+			<a  href="post/{{ id }}">
+				<div >
+					<h1 class="registrate">{{ nombreObra }}</h1>
+					<img id="posts" src="/static/images/{{ nombreImagen }}" alt="{{ nombreObra }}">
+
+
+				</div>
+			</a>
+
+		</div>
+
+	
+	{% endfor %}
+	</div>
+{% endblock %}
+
+

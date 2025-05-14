@@ -1,0 +1,51 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+	<img src="static/images/name-no-bckg.png" id="titulo" />
+	<h1 class="registrate">Perfil</h1>
+	<div id="loginFormCuatro">
+		
+		<h2 class="datos">Mis datos</h2>
+	
+	{% if data %}
+		<div style="max-width: 100%;">
+			<div class="contenedor">
+				<h1 class="registrateUno">Nombre de usuario:</h1>
+				<p class="parrafo"> {{ data.username }}</p>
+			</div class="contenedor">
+			<div class="contenedor">
+				<h1 class="registrateUno">Correo electrónico:</h1>
+				<p class="parrafo"> {{ data.email }} </p>
+			</div class="contenedor"> 
+			 
+		</div>
+		
+	</div >
+	<h2 class="datos">Mis posts</h2>
+	<div id="loginFormGrande">
+		
+
+		{% for post in posts %}
+				<div id="loginFormDos">
+					<a href="post/{{ post.id }}">
+					<h1 class="registrate">{{ post.nombreObra }}</h1>
+					<img id="posts" src="/static/images/{{ post.nombreImagen }}">
+					</a>
+					<div id="deletea">
+						<a href="{{ url_for('arts.delete', id = post.id) }}">
+						<button class="btn btn-primary">Delete</button>
+						</a> 
+					</div>
+					
+				</div>
+			
+			
+			
+
+		{% endfor %}
+	{% endif %}
+	</div>
+
+
+
+{% endblock %}

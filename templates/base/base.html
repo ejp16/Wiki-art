@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Wiki-Art</title>
+	<link rel="stylesheet" href="/static/css/bootstrap.css"> 
+	<link rel="stylesheet" type="text/css" href="/static/styles.css">
+	<link rel="shortcut icon" href="/static/images/logo.png">
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-lg bg-light">
+	  
+	  <div class="container-fluid">
+	  	<img calss="logo_nav" src="/static/images/logo-new.png" width="65px" height="65px"></img>
+	    <a class="navbar-brand" href="{{ url_for('arts.home') }}">Inicio</a>
+	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	      <span class="navbar-toggler-icon"></span>
+	    </button>
+	    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+	        <li class="nav-item">
+	        	<a class="nav-link active" href="{{ url_for('arts.profile') }}">Mi perfil</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link active" aria-current="page" href="{{ url_for('arts.new_post') }}">Crear un post</a>
+	        <li class="nav-item">
+	          <a class="nav-link active" aria-current="page" href="{{ url_for('arts.new') }}">Registrarse</a>
+	        </li>	        
+	        <li class="nav-item">
+	          <a class="nav-link active" aria-current="page" href="{{ url_for('arts.login') }}">Iniciar sesión</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link active" aria-current="page" href="{{ url_for('arts.logout') }}">Cerrar sesión</a>
+	        </li>
+	      </ul>
+
+	      <form class="d-flex" role="search" method="GET" action="{{ url_for('arts.buscar') }}">
+	        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="cuadroBusqueda">
+	        <select class="select" name="estiloObra">
+
+	        	<option value="" >Estilo de la obra</option>
+
+	        	<optgroup >
+		        	<option value="Realismo">Realismo</option>
+					<option value="Fotorrealismo">Fotorrealismo</option>
+					<option value="Expresionismo">Expresionismo</option>
+					<option value="Impresionismo">Impresionismo</option>
+					<option value="Abstracto">Abstracto</option>
+					<option value="Surrealismo">Surrealismo</option>
+					<option value="Renacimiento">Renacimiento</option>
+
+	        	</optgroup>
+	        </select>
+
+	        <select class="select" name="generoObra">
+
+	        	<option value="" >Género de la obra</option>
+
+	        	<optgroup >
+					<option value="Pintura histórica">Pintura histórica</option>
+					<option value="Retrato">Retrato</option>
+					<option value="Pintura de género">Pintura de género</option>
+					<option value="Paisaje">Paisaje</option>
+					<option value="Naturaleza muerta">Naturaleza muerta</option>
+					<option value="Desnudo">Desnudo</option>
+					<option value="Simbolica">Simbolica</option>
+					<option value="Cubismo">Cubismo</option>
+					<option value="Alegoria">Alegoria</option>
+
+
+	        	</optgroup>
+
+	        </select>
+	        <button class="btn btn-outline-success" type="submit">Search</button>
+	      </form>
+	    </div>
+	  </div>
+	</nav>
+	
+	
+
+	{% block content %}
+
+	{% endblock %}
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+	<footer id="nav-footer" class="page-footer">
+		
+			<img src="/static/images/logo-new.png" class="img" >
+				<div id="dos"> 
+					Copyright © Todos los derechos reservados por César Pausin, Eduardo Páez y Daniel Racero
+				</div>
+				
+				<img class="img" src="/static/images/zyro-image.png"/>
+				
+		
+	</footer>
+
+</body>
+</html>
+

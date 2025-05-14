@@ -1,0 +1,73 @@
+{% extends 'base/base.html' %}
+
+{% block content %} 
+
+	{% from "base/_macro.html" import render_field %}
+	
+	<!-- Para capturar los mensajes exitosos -->
+	{% with messages = get_flashed_messages(category_filter=["success"]) %}
+
+		{% if messages %}
+		
+		
+			{% for message in messages %}
+
+				<div class="alert alert-success alert-dismissible fade show" role="alert">
+				  {{ message }}
+				  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>
+
+			{% endfor %}
+		
+		
+		{% endif %}
+	{% endwith %}
+
+	<!-- Para capturar los mensajes de error  -->
+	{% with errors = get_flashed_messages(category_filter=["error"]) %}
+
+		{% if errors %}
+			{% for error in errors %}
+
+				<div class="alert alert-warning alert-dismissible fade show" role="alert">
+				  {{ error }}
+				  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>
+			{% endfor %}
+
+		{% endif %}
+	{% endwith %}
+	
+
+	<div id="loginFormTres">
+		<div class="loginForm_superior">
+			<h1 class="registrate">Regístrate</h1>
+			<img src="/static/images/logo-new.png" width="150px" height="150px" ></img>
+		</div>
+		
+		<p class="registrate">¿Ya tienes una cuenta? <a href="{{ url_for('arts.login') }}">Inicia Sesión</a></p>
+		<form method="POST">
+			
+			<div class="mb-3">
+			    {{ render_field(form.username) }}
+			</div class="mb-3">
+
+			<div class="mb-3">
+				{{ render_field(form.email) }}
+			</div class="mb-3">
+
+			<div class="mb-3">
+				{{ render_field(form.password) }}
+			</div class="mb-3">
+			
+			<button type="submit" class="btn btn-primary">Enviar</button>
+
+
+		</form>
+	</div>
+
+{% endblock %}
+
+
+
+			
