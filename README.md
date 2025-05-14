@@ -1,4 +1,4 @@
-# Wiki-art
+# Wiki-Art
 
 Este proyecto es una aplicación web llamada **Wiki-Art**, desarrollada con Flask, que permite a los usuarios registrarse, iniciar sesión y publicar reseñas sobre obras de arte. 
 
