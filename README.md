@@ -31,3 +31,7 @@ La estructura del proyecto incluye rutas para la gestión de usuarios y posts, m
 #### Con el entorno virtual activado, ejecutar el archivo index.py
 
     python3 index.py
+
+### Pagina principal de la aplicación 
+
+![alt text](https://github.com/ejp16/Wiki-art/blob/master/static/images/wiki-art.png?raw=true)
